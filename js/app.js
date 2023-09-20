@@ -130,7 +130,7 @@ function mostrarPokemon(pokemon){
     const div = document.createElement('div');
     
 
-    // ${tipo.type.name}
+   
     
     let tipos = pokemon.types.map((tipo) => 
     
@@ -205,7 +205,6 @@ function mostrarPokemon(pokemon){
                     }
                     
                 })
-                //entry = entradasEspanol[0];
 
             })
             .catch(function(error) {
