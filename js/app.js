@@ -12,6 +12,8 @@ let cerrarModal = document.querySelector('.modal__close');
 let contenedorTipoModal = document.querySelector('.contenedor-tipos--modal');
 let contenedorImagen = document.querySelector('.contenedor-imagen');
 let tipoPrincipal;
+let divStatsModal = document.querySelector('.div-stats-modal');
+
 
 
 
@@ -128,10 +130,7 @@ function obtenerDatos(idPokemon){
 //Muestra en el documento HTML los datos de los pokemon
 function mostrarPokemon(pokemon){
     const div = document.createElement('div');
-    
-
-   
-    
+    let arregloStats = [];
     let tipos = pokemon.types.map((tipo) => 
     
         `
@@ -144,6 +143,24 @@ function mostrarPokemon(pokemon){
     tipos = tipos.join('');
     div.classList.add('pokemon-card');
     div.id = 'card_'+pokemon.id;
+    let stats = pokemon.stats;
+    
+    let statsString = '';
+    stats.map((stat) =>{
+        if(stat.stat.name === 'special-attack'){
+            statsString +=  '<br><span class="stat-detalle"><span class="stat-nombre">' + stat.stat.name + ": </span>" + '<span class="stat-valor">' + stat.base_stat + " </span> </span>" ;
+        }else{
+            statsString += '<span class="stat-detalle"><span class="stat-nombre">' + stat.stat.name + ": </span>" + '<span class="stat-valor">' + stat.base_stat + " </span> </span>" ;
+        }
+        
+    })
+    let parrafoStats = '<p class ="parrafo-stats">'+statsString+'</p>'
+    
+    let objetoStats = {"idPokemon": pokemon.id,
+                       "contenidoStats": parrafoStats}
+    //console.log(objetoStats)
+    arregloStats.push(objetoStats);
+
     
     div.innerHTML = `
         <img  class = "pokemon-card__img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"}"></img>
@@ -216,7 +233,6 @@ function mostrarPokemon(pokemon){
             
             contenedorImagen.classList.add(tipoPrincipal);
             
-
             let h2Nombre = document.getElementById('nombre_'+this.id).textContent;
             let rutaImagen = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+this.id+'.png'
             imagenModal.src = rutaImagen;
@@ -226,6 +242,15 @@ function mostrarPokemon(pokemon){
 
             contenedorTipoModal.innerHTML = `${tipos}`;
            
+            let modalStats = '';
+            arregloStats.map((c_stat)=>{
+                if(c_stat.idPokemon == this.id){
+                    modalStats += c_stat.contenidoStats;
+                }
+            })
+            console.log(modalStats)
+            divStatsModal.innerHTML = modalStats;
+
             modal.classList.add('modal--show');
         })
 }
