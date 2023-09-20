@@ -250,13 +250,9 @@ h1, h2, h3, h4, h5{
 .modal__container{
     width: 80%;
     max-width: 400px;
-    height: 60%;
+    height: 70%;
     background-color: #fff;
     margin: auto;
-    /* display: grid;
-    gap: 1rem;
-    place-items: center;
-    grid-auto-columns: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
