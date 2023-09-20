@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favico.png" type="image/x-icon">
+    <title>PokeDEX</title>
+</head>
+<body>
+    <!-- <h1>pokeapi</h1> -->
+    <header class="header">
+        <img src="img/logo.png" alt="logo" class="logo">
+        <div class="buscador">
+            <label class="buscador__label" for="generacion">Buscar Por Región:</label>
+            <select class="buscador__select" name="generacion" id="generacion">
+                <option class="buscador__select-option" value="" selected disabled>---Selecciona---</option>
+                <option class="buscador__select-option" value="1">Kanto</option>
+                <option class="buscador__select-option" value="2">Johto</option>
+                <option class="buscador__select-option" value="3">Hoenn</option>
+                <option class="buscador__select-option" value="4">Sinnoh</option>
+                <option class="buscador__select-option" value="5">Unova</option>
+                <option class="buscador__select-option" value="6">Kalos</option>
+                <option class="buscador__select-option" value="7">Alola</option>
+                <option class="buscador__select-option" value="8">Galar</option>
+            </select>
+        </div>
+    </header>
+
+    </ul>
+    <div class="modal" id="modal">
+        <div class="modal__container">
+            <div class="contenedor-imagen">
+                <img class="modal__img" >
+            </div>
+            <h2 class="modal__title">1. Bulbasaur</h2>
+            <p class="modal__paragraph" id="modal__paragraph">
+                ...
+            </p>
+            <div class="contenedor-tipos--modal"></div>
+            <a href="#" class="modal__close">X</a>
+        </div>
+    </div>
+    <div id="lista-pokemon" class="lista-pokemon"></div>
+    <footer class="footer">
+        <p>Hecho por rogero.dev</p>
+        <div class="contacto">
+            <a target="_blank" href="https://github.com/roger2107" class="enlace-contacto">
+                <img class="img-contacto" src="img/github.png" alt="github">
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/roger-olivera/" class="enlace-contacto">
+                <img class="img-contacto" src="img/linkedin.png" alt="linkedin">
+            </a>
+            <a target="_blank" href="https://twitter.com/rogeroDev" class="enlace-contacto">
+                <img class="img-contacto" src="img/twitter.png" alt="twitter">
+            </a>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
